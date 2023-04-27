@@ -43,4 +43,3 @@ function generateDiff (obj1, obj2) {
   result.push('}')
   console.log(result.join('\n'))
 }
-console.log('jadhfjbaebhjb')
