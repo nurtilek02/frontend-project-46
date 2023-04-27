@@ -2,18 +2,6 @@ import { readFileSync } from 'node:fs';
 import _ from 'lodash';
 import path from 'node:path';
 
-export default function showDiff(filepath1, filepath2) {
-  const path1 = resolvePath(filepath1)
-  const path2 = resolvePath(filepath2)
-  const data1 = readFileSync(path1, 'utf-8' )
-  const data2 = readFileSync(path2, 'utf-8' )
-   
-  const parsedObj1 = JSON.parse(data1)
-  const parsedObj2 = JSON.parse(data2)
-   
-  generateDiff(parsedObj1, parsedObj2)
-}
-
 function resolvePath(filepath) {
   return filepath.includes('fixtures') ? filepath : path.resolve() + `\\__fixtures__\\${filepath}`
 }
@@ -41,5 +29,19 @@ function generateDiff (obj1, obj2) {
   }
 }
   result.push('}')
-  console.log(result.join('\n'))
+  console.log('result', result.join('\n'))
+  return result.join('\n')
+  
+}
+
+export default function showDiff(filepath1, filepath2) {
+  const path1 = resolvePath(filepath1)
+  const path2 = resolvePath(filepath2)
+  const data1 = readFileSync(path1, 'utf-8' )
+  const data2 = readFileSync(path2, 'utf-8' )
+   
+  const parsedObj1 = JSON.parse(data1)
+  const parsedObj2 = JSON.parse(data2)
+   
+ return generateDiff(parsedObj1, parsedObj2)
 }
