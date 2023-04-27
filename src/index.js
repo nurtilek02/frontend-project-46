@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
 import _ from 'lodash';
-
 import path from 'node:path';
 
 export default function showDiff(filepath1, filepath2) {
