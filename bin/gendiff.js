@@ -10,6 +10,7 @@ program
    .helpOption('-h, --help', 'output usage information')
    .argument('<filepath1>')
    .argument('<filepath2>')
-   .action(showDiff)  
+   .action(showDiff)
+   
    
 program.parse();

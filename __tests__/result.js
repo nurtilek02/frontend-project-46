@@ -7,3 +7,4 @@ const result =
     + timeout: 20
     + verbose: true
 }`
+export default result
