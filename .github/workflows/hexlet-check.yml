@@ -15,9 +15,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+      startegy:
+        matrix:
+         node-version: [18.x]
+
     steps:
       - uses: actions/checkout@v3
-
+      
       - name: Hexlet project check
         uses: hexlet/project-action@release
         with:
